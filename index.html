@@ -1,0 +1,124 @@
+<!-- This is a first example of using a template -->
+<head>
+<meta charset="UTF-8">
+<!-- include our libraries and css files -->
+
+<script src="js/jquery-2.1.4.min.js"></script>
+<script src="js/handlebars-v3.0.3.js"></script>
+
+<script src="js/bootstrap.min.js"></script>
+<script src="assignment.js"></script>
+<script src="AnimalsData.js"></script>
+
+<link href="css/bootstrap.css" rel="stylesheet">
+<link href="assignment.css" rel="stylesheet">
+<link href='https://fonts.googleapis.com/css?family=Architects+Daughter' rel='stylesheet' type='text/css'>
+<title>Animal Gallery</title>
+
+</head>
+
+<body>
+
+  <div id="body" class="container">
+    <!-- fixed head -->
+    <nav class="navbar navbar-default">
+
+      <!-- start collapsed navbar -->
+      <div class="navbar-header">
+        <button
+          type="button"
+          class="navbar-toggle collapsed"
+          data-toggle="collapse"
+          data-target="#main_navbar"
+          aria-expanded="false">open!
+        </button>
+      </div>
+      <!-- end of collapsed navbar -->
+
+      <!-- start un-collapsed navbar -->
+      <div
+        class="collapse navbar-collapse"
+        id="main_navbar">
+        <ul class="nav navbar-nav">
+          <li id="animals" class="menu active"><a href="#">Home</a></li>
+          <li id="reptiles" class="menu"><a href="#">Reptiles</a></li>
+          <li id="mammals" class="menu"><a  href="#">Mammals</a></li>
+          <li id="birds" class="menu"><a href="#">Birds</a></li>
+        </ul>
+      </div>
+    </nav>
+    <!-- end of un-collapsed navbar -->
+
+    <!-- /fixed head -->
+
+    <div class="container">
+      <h1 id="title">Animals</h1>
+    </div>
+
+    <!-- processed template content -->
+    <div id="content" class="container-fluid"></div>
+    <!-- /content -->
+
+    <!-- templates -->
+
+    <!-- animal-template -->
+    <script id="animal-template" type="text/x-handlebars-template">
+      <div class="row container-fluid">
+      {{#each class}}
+          <div class="col-xs-4 card categories" style="background-image: url({{animals.[0].image2}})" data-id="{{@index}}">
+            <div id="class-tag" class="tag">{{name}}</div>
+          </div>
+      {{/each}}
+      </div>
+    </script>
+    <!-- /animal-template -->
+
+    <!-- class-template -->
+    <script id="class-template" type="text/x-handlebars-template">
+        <div class="row">
+          {{#each animals}}
+            <div class="col-xs-3 card animals" style="background-image: url({{image1}})" data-id="{{@index}}">
+              <div class="tag">{{name}}</div>
+            </div>
+            <div class="col-xs-3 card animals" style="background-image: url({{image2}})" data-id="{{@index}}">
+              <div class="tag">{{name}}</div>
+            </div>
+          {{/each}}
+        </div>
+    </script>
+    <!-- /class-template -->
+
+    <!-- info-template -->
+    <script id="info-template" type="text/x-handlebars-template">
+      <div id="a" class="row">
+        <div id="b" class="col-xs-6 col-md-3">
+          <button type="button" data-toggle="modal" data-target="#myModal1" id="img1" class="row card card-btn animal" style="background-image: url({{image1}})">
+            <div class="tag">{{name}}</div>
+          </button>
+          <button type="button" data-toggle="modal" data-target="#myModal2" id="img2" class="row card card-btn animal" style="background-image: url({{image2}})">
+            <div class="tag">{{name}}</div>
+          </button>
+        </div>
+        <div id="animal-text" class="col-xs-6 col-md-9"><p>{{description}}</p></div>
+      </div>
+      <!-- Modal -->
+      <!-- image 1 -->
+      <div class="modal fade" id="myModal1" role="dialog">
+        <div class="modal-dialog">
+          <div id="fullscreen" class="modal-content animal-modal" style="background-image: url({{image1}})"></div>
+        </div>
+      </div>
+      <!-- image 2 -->
+      <div class="modal fade" id="myModal2" role="dialog">
+        <div class="modal-dialog">
+          <div id="fullscreen" class="modal-content animal-modal" style="background-image: url({{image2}})"></div>
+        </div>
+      </div>
+      <!-- /Modal -->
+    </script>
+    <!-- /info-template -->
+
+    <!-- /templates -->
+  </div> <!-- /#body -->
+
+</body>

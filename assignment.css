@@ -1,0 +1,77 @@
+/* layout */
+#title{
+  font-family: 'Architects Daughter', cursive;
+  text-align: center;
+}
+/* /layout */
+
+/* general */
+.card{
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center top;
+  overflow: hidden;
+  padding-left: 0;
+  padding-right: 0;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+}
+.card:hover{
+  transform: translate(-2px, -10px);
+  box-shadow: rgba(0,0,0,.2) -5px 6px 5px;
+}
+.tag{
+  background-color: rgba(60,100,80,.7);
+  color: #F2EEB3;
+  padding: 5px;
+  width: 500px;
+  text-transform: uppercase;
+}
+/* /general */
+
+.categories{
+  height: 400px;
+}
+.animals{
+  height: 250px;
+}
+
+.animal{
+  height: 33vh;
+}
+#animal-text{
+  font-size: 1.5em;
+}
+.card-btn{
+  width: 100%;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+}
+.card-btn > .tag{
+  margin-top: -1px;
+}
+
+/* modal images */
+.modal{
+
+}
+.animal-modal{
+  position: fixed;
+  top: 50%;
+  left: 50%;
+
+  /* prefixes */
+  transform: translateX(-50%);
+  -webkit-transform: translateX(-50%);
+  -moz-transform: translateX(-50%);
+  -ms-transform: translateX(-50%);
+
+  height: 80vh;
+  width: 80vw;
+  margin-top: 5vh;
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-color: rgba(0, 0, 0, .2);
+}
